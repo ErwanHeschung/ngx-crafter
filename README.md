@@ -1,4 +1,4 @@
-# 🌱 ngx-crafter
+# ![logo](https://github.com/ErwanHeschung/ngx-crafter/blob/master/logo.png) ngx-crafter
 
 > **Craft your Angular projects like a pro!** ⛏️
 
