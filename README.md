@@ -3,6 +3,7 @@
 > **Craft your Angular projects like a pro!** ⛏️
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/ngx-crafter.svg)](https://www.npmjs.com/package/ngx-crafter)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![Angular](https://img.shields.io/badge/Angular-17+-red.svg)](https://angular.io/)
 

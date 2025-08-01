@@ -1,6 +1,6 @@
 {
   "name": "ngx-crafter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom Angular CLI generator",
   "type": "module",
   "main": "dist/cli.js",
@@ -11,6 +11,14 @@
   "bin": {
     "ngx-crafter": "./dist/cli.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ErwanHeschung/ngx-crafter"
+  },
+  "bugs": {
+    "url": "https://github.com/ErwanHeschung/ngx-crafter/issues"
+  },
+  "homepage": "https://github.com/ErwanHeschung/ngx-crafter#readme",
   "author": "TOROIMERA",
   "license": "MIT",
   "files": [
@@ -18,7 +26,12 @@
     "README.md",
     "LICENSE"
   ],
-  "keywords": ["angular", "cli", "generator", "scaffold"],
+  "keywords": [
+    "angular",
+    "cli",
+    "generator",
+    "scaffold"
+  ],
   "devDependencies": {
     "@types/node": "^24.1.0",
     "@types/semver": "^7.7.0",
