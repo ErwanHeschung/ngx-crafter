@@ -1,0 +1,30 @@
+{
+  "src": {
+    "app": {
+      "core": {
+        "services": {},
+        "guards": {},
+        "interceptors": {},
+        "models": {},
+        "utils": {}
+      },
+      "shared": {
+        "components": {},
+        "directives": {},
+        "pipes": {},
+        "models": {},
+        "services": {}
+      },
+      "features": {
+      },
+      "layouts": {
+      },
+      "assets": {
+        "images": {},
+        "icons": {},
+        "fonts": {}
+      }
+    },
+    "environments": {}
+  }
+}
