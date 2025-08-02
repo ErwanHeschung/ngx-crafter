@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 
-export async function getProjectConfig(): Promise<{ projectName: string; packages: string[] }> {
+export async function getProjectConfig(): Promise<{ projectName: string; packages: string[]; devUtilities: string[] }> {
   return await inquirer.prompt([
     {
       type: "input",
@@ -19,7 +19,16 @@ export async function getProjectConfig(): Promise<{ projectName: string; package
         { name: "Angular Material", value: "material" },
         { name: "Tailwind CSS", value: "tailwind" },
         { name: "NgRx (state management)", value: "ngrx" },
+      ],
+    },
+    {
+      type: "checkbox",
+      name: "devUtilities",
+      message: "Select dev utilities to add:",
+      choices: [
+        { name: "Husky", value: "husky" },
         { name: "ESLint", value: "eslint" },
+        { name: "Prettier", value: "prettier" },
       ],
     },
   ]);

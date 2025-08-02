@@ -2,13 +2,14 @@
 
 import chalk from "chalk";
 import semver from "semver";
-import { checkAngularCLI } from "./utils/checkAngularCLI";
-import { getProjectConfig, getFolderStructureConfig } from "./utils/prompt";
+import { checkAngularCLI } from "./utils/checkAngularCLI.js";
+import { getProjectConfig, getFolderStructureConfig } from "./utils/prompt.js";
 import {
   createAngularProject,
   addPackages,
-} from "./utils/createProject";
-import { createProjectStructure } from "./utils/createFolders";
+  addDevUtilities,
+} from "./utils/createProject.js";
+import { createProjectStructure } from "./utils/createFolders.js";
 
 async function validateAngularVersion(version: string): Promise<void> {
   if (!semver.satisfies(version, ">=17.0.0 <21.0.0")) {
@@ -26,7 +27,7 @@ async function main(): Promise<void> {
   const cliVersion = await checkAngularCLI();
   await validateAngularVersion(cliVersion);
 
-  const { projectName, packages } = await getProjectConfig();
+  const { projectName, packages, devUtilities } = await getProjectConfig();
   const { useCustomStructure, structureFilePath } =
     await getFolderStructureConfig();
 
@@ -38,6 +39,10 @@ async function main(): Promise<void> {
 
   if (packages.length > 0) {
     await addPackages(packages);
+  }
+
+  if (devUtilities.length > 0) {
+    await addDevUtilities(devUtilities);
   }
 
   await createProjectStructure(userCwd, useCustomStructure ? structureFilePath : undefined);
