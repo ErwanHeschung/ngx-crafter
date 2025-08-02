@@ -28,6 +28,7 @@ export async function getProjectConfig(): Promise<{ projectName: string; package
       choices: [
         { name: "Husky", value: "husky" },
         { name: "ESLint", value: "eslint" },
+        { name: "Prettier", value: "prettier" },
       ],
     },
   ]);
