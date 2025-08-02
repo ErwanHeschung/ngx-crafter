@@ -58,6 +58,8 @@ When you run `ngx-crafter`, you'll get a fully configured Angular project with:
 
 ### 🛠️ Development Utilities
 - **Husky**: Git hooks configured with lint-staged for pre-commit code quality checks
+- **ESLint**: Code linting and formatting rules
+- **Prettier**: Code formatting and style consistency
 
 ### 📁 Default Folder Structure
 
@@ -94,9 +96,10 @@ The tool will ask you:
    - **Angular Material**: UI component library
    - **Tailwind CSS**: Utility-first CSS framework
    - **NgRx**: State management library
-   - **ESLint**: Code linting and formatting
 3. **Dev Utilities**: Which development utilities do you want to add?
    - **Husky**: Git hooks with lint-staged for pre-commit code quality
+   - **ESLint**: Code linting and formatting
+   - **Prettier**: Code formatting and style consistency
 4. **Folder Structure**: Use default or custom structure?
 
 ## 🎨 Custom Structures
