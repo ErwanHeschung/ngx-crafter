@@ -1,6 +1,6 @@
 import { execa } from "execa";
 import chalk from "chalk";
-import { writeJsonFile } from "../utils/fileUtil";
+import { writeJsonFile } from "../utils/fileUtil.js";
 
 export default async function setupPrettier() {
     console.log(chalk.yellow("Setting up Prettier..."));

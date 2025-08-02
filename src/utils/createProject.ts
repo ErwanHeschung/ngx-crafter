@@ -1,8 +1,8 @@
 import { execa } from "execa";
 import chalk from "chalk";
-import setupTailwind from "../steps/setupTailwind";
-import setupHusky from "../steps/setupHusky";
-import setupPrettier from "../steps/setupPrettier";
+import setupTailwind from "../steps/setupTailwind.js";
+import setupHusky from "../steps/setupHusky.js";
+import setupPrettier from "../steps/setupPrettier.js";
 
 export async function createAngularProject(projectName: string): Promise<void> {
   console.log(chalk.green(`\nCreating project ${projectName}...`));

@@ -1,7 +1,7 @@
 import { execa } from "execa";
 import chalk from "chalk";
 import fs from "fs";
-import { updatePackageJson } from "../utils/fileUtil";
+import { updatePackageJson } from "../utils/fileUtil.js";
 
 export default async function setupHusky() {
     console.log(chalk.yellow("Setting up Husky for git hooks..."));

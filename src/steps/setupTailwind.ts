@@ -1,7 +1,7 @@
 import { execa } from "execa";
 import path from "path";
 import chalk from "chalk";
-import { writeJsonFile, insertLineAtTopIfMissing } from "../utils/fileUtil";
+import { writeJsonFile, insertLineAtTopIfMissing } from "../utils/fileUtil.js";
 
 export default async function setupTailwind() {
     console.log(chalk.yellow("Adding Tailwind CSS..."));

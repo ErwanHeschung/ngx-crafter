@@ -2,14 +2,14 @@
 
 import chalk from "chalk";
 import semver from "semver";
-import { checkAngularCLI } from "./utils/checkAngularCLI";
-import { getProjectConfig, getFolderStructureConfig } from "./utils/prompt";
+import { checkAngularCLI } from "./utils/checkAngularCLI.js";
+import { getProjectConfig, getFolderStructureConfig } from "./utils/prompt.js";
 import {
   createAngularProject,
   addPackages,
   addDevUtilities,
-} from "./utils/createProject";
-import { createProjectStructure } from "./utils/createFolders";
+} from "./utils/createProject.js";
+import { createProjectStructure } from "./utils/createFolders.js";
 
 async function validateAngularVersion(version: string): Promise<void> {
   if (!semver.satisfies(version, ">=17.0.0 <21.0.0")) {
