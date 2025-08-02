@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import chalk from "chalk";
+import { fileURLToPath } from "url";
 
 type FolderStructure = {
   [folderName: string]: FolderStructure | {};
@@ -30,9 +31,11 @@ export async function createProjectStructure(
   
   try {
     if (!structureFilePath) {
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = path.dirname(__filename);
       structureFilePath = path.resolve(
         __dirname,
-        "../assets/default-structure.json"
+        "../../assets/default-structure.json"
       );
       console.log(
         chalk.blue(
