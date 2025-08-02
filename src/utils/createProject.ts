@@ -1,5 +1,6 @@
 import { execa } from "execa";
 import chalk from "chalk";
+import setupTailwind from "../steps/setupTailwind";
 
 export async function createAngularProject(projectName: string): Promise<void> {
   console.log(chalk.green(`\nCreating project ${projectName}...`));
@@ -16,12 +17,7 @@ export async function addPackages(packages: string[]): Promise<void> {
         await execa("ng", ["add", "@angular/material"], { stdio: "inherit" });
         break;
       case "tailwind":
-        console.log(chalk.yellow("Adding Tailwind CSS..."));
-        await execa(
-          "npm",
-          ["install", "-D", "tailwindcss", "postcss", "autoprefixer"],
-          { stdio: "inherit" }
-        );
+        await setupTailwind();
         break;
       case "ngrx":
         console.log(chalk.yellow("Adding NgRx..."));

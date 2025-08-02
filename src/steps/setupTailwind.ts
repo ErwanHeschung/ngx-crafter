@@ -6,7 +6,7 @@ import { writeJsonFile, insertLineAtTopIfMissing } from "../utils/fileUtil";
 export default async function setupTailwind() {
     console.log(chalk.yellow("Adding Tailwind CSS..."));
 
-    await execa("npm", ["install", "-D", "tailwindcss", "postcss", "autoprefixer"], {
+    await execa("npm", ["install", "tailwindcss", "@tailwindcss/postcss", "postcss", "--force"], {
         stdio: "inherit",
     });
 
@@ -17,5 +17,5 @@ export default async function setupTailwind() {
     });
 
     const stylePath = path.join(process.cwd(), "src/styles.scss");
-    insertLineAtTopIfMissing(stylePath, '@import "tailwindcss";');
+    insertLineAtTopIfMissing(stylePath, '@use "tailwindcss";');
 }

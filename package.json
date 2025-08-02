@@ -6,7 +6,7 @@
   "main": "dist/cli.js",
   "scripts": {
     "build": "tsc && node -e \"const fs=require('fs');const path=require('path');function copyDir(src,dest){if(!fs.existsSync(dest))fs.mkdirSync(dest,{recursive:true});const items=fs.readdirSync(src);items.forEach(item=>{const srcPath=path.join(src,item);const destPath=path.join(dest,item);if(fs.statSync(srcPath).isDirectory())copyDir(srcPath,destPath);else fs.copyFileSync(srcPath,destPath);});}copyDir('assets','dist/assets');\"",
-    "dev": "ts-node --esm src/cli.ts"
+    "dev": "node --no-deprecation --import ./loader.mjs src/cli.ts"
   },
   "bin": {
     "ngx-crafter": "./dist/cli.js"
@@ -33,7 +33,7 @@
     "scaffold"
   ],
   "devDependencies": {
-    "@types/node": "^24.1.0",
+    "@types/node": "^22.0.0",
     "@types/semver": "^7.7.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
