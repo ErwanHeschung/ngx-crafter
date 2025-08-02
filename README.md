@@ -13,6 +13,7 @@ A powerful CLI tool that helps you **craft** Angular projects with pre-configure
 
 - **🏗️ Smart Project Generation**: Creates Angular projects with optimized folder structures
 - **📦 Package Management**: Automatically installs commonly used packages (Tailwind CSS, Angular Material, NgRx, ESLint)
+- **🔧 Dev Utilities**: Git hooks and development tools (Husky)
 - **🎨 Tailwind CSS Integration**: Pre-configured utility-first CSS framework with PostCSS
 - **🎯 Custom Structures**: Support for custom folder structure configurations
 - **⚡ Fast Setup**: Get your project ready in seconds, not minutes
@@ -55,6 +56,9 @@ When you run `ngx-crafter`, you'll get a fully configured Angular project with:
 - **NgRx**: State management with store, effects, and devtools
 - **ESLint**: Code quality and formatting rules
 
+### 🛠️ Development Utilities
+- **Husky**: Git hooks configured with lint-staged for pre-commit code quality checks
+
 ### 📁 Default Folder Structure
 
 ```
@@ -91,7 +95,9 @@ The tool will ask you:
    - **Tailwind CSS**: Utility-first CSS framework
    - **NgRx**: State management library
    - **ESLint**: Code linting and formatting
-3. **Folder Structure**: Use default or custom structure?
+3. **Dev Utilities**: Which development utilities do you want to add?
+   - **Husky**: Git hooks with lint-staged for pre-commit code quality
+4. **Folder Structure**: Use default or custom structure?
 
 ## 🎨 Custom Structures
 

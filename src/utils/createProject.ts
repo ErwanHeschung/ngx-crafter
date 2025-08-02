@@ -1,6 +1,7 @@
 import { execa } from "execa";
 import chalk from "chalk";
 import setupTailwind from "../steps/setupTailwind";
+import setupHusky from "../steps/setupHusky";
 
 export async function createAngularProject(projectName: string): Promise<void> {
   console.log(chalk.green(`\nCreating project ${projectName}...`));
@@ -23,14 +24,27 @@ export async function addPackages(packages: string[]): Promise<void> {
         console.log(chalk.yellow("Adding NgRx..."));
         await execa("ng", ["add", "@ngrx/store"], { stdio: "inherit" });
         break;
+      default:
+        console.log(chalk.red(`Unknown package: ${pkg}`));
+    }
+  }
+}
+
+export async function addDevUtilities(devUtilities: string[]): Promise<void> {
+  for (const utility of devUtilities) {
+    switch (utility) {
       case "eslint":
         console.log(chalk.yellow("Adding ESLint..."));
         await execa("ng", ["add", "@angular-eslint/schematics"], {
           stdio: "inherit",
         });
         break;
+      case "husky":
+        await setupHusky();
+        break;
+        
       default:
-        console.log(chalk.red(`Unknown package: ${pkg}`));
+        console.log(chalk.red(`Unknown dev utility: ${utility}`));
     }
   }
 }
