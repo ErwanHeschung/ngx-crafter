@@ -9,11 +9,11 @@
     "dev": "node --no-deprecation --import ./loader.mjs src/cli.ts",
     "prepare": "husky"
   },
-          "lint-staged": {
-            "*.{ts,html}": [
-                "echo 'Add your linting stages here'"
-            ]
-        },
+  "lint-staged": {
+    "*.{ts}": [
+        "eslint --fix"
+    ]
+  },
   "bin": {
     "ngx-crafter": "./dist/cli.js"
   },
