@@ -1,11 +1,11 @@
 {
   "name": "ngx-crafter",
-  "version": "1.0.3",
+  "version": "1.1.4",
   "description": "Custom Angular CLI generator",
   "type": "module",
   "main": "dist/cli.js",
   "scripts": {
-    "build": "tsc && node -e \"const fs=require('fs');const path=require('path');function copyDir(src,dest){if(!fs.existsSync(dest))fs.mkdirSync(dest,{recursive:true});const items=fs.readdirSync(src);items.forEach(item=>{const srcPath=path.join(src,item);const destPath=path.join(dest,item);if(fs.statSync(srcPath).isDirectory())copyDir(srcPath,destPath);else fs.copyFileSync(srcPath,destPath);});}copyDir('assets','dist/assets');\"",
+    "build": "tsc",
     "dev": "node --no-deprecation --import ./loader.mjs src/cli.ts",
     "prepare": "husky"
   },
@@ -30,7 +30,8 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "assets"
   ],
   "keywords": [
     "angular",
