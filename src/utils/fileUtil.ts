@@ -13,3 +13,19 @@ export function insertLineAtTopIfMissing(filePath: string, line: string) {
         fs.writeFileSync(filePath, `${line}\n${content}`, "utf-8");
     }
 }
+
+export function updatePackageJson(updates: Record<string, any>) {
+    const packageJsonPath = "package.json";
+    if (!fs.existsSync(packageJsonPath)) return;
+
+    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
+
+    // Merge scripts properly
+    if (updates.scripts && packageJson.scripts) {
+        updates.scripts = { ...packageJson.scripts, ...updates.scripts };
+    }
+
+    const updatedPackageJson = { ...packageJson, ...updates };
+
+    writeJsonFile(packageJsonPath, updatedPackageJson);
+}

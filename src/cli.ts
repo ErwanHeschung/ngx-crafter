@@ -7,6 +7,7 @@ import { getProjectConfig, getFolderStructureConfig } from "./utils/prompt";
 import {
   createAngularProject,
   addPackages,
+  addDevUtilities,
 } from "./utils/createProject";
 import { createProjectStructure } from "./utils/createFolders";
 
@@ -26,7 +27,7 @@ async function main(): Promise<void> {
   const cliVersion = await checkAngularCLI();
   await validateAngularVersion(cliVersion);
 
-  const { projectName, packages } = await getProjectConfig();
+  const { projectName, packages, devUtilities } = await getProjectConfig();
   const { useCustomStructure, structureFilePath } =
     await getFolderStructureConfig();
 
@@ -38,6 +39,10 @@ async function main(): Promise<void> {
 
   if (packages.length > 0) {
     await addPackages(packages);
+  }
+
+  if (devUtilities.length > 0) {
+    await addDevUtilities(devUtilities);
   }
 
   await createProjectStructure(userCwd, useCustomStructure ? structureFilePath : undefined);
