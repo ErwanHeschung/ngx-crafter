@@ -54,7 +54,6 @@ When you run `ngx-crafter`, you'll get a fully configured Angular project with:
 - **Tailwind CSS**: Automatically configured with PostCSS and ready to use
 - **Angular Material**: UI components and theming setup
 - **NgRx**: State management with store, effects, and devtools
-- **ESLint**: Code quality and formatting rules
 
 ### 🛠️ Development Utilities
 - **Husky**: Git hooks configured with lint-staged for pre-commit code quality checks
