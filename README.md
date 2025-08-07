@@ -16,6 +16,7 @@ A powerful CLI tool that helps you **craft** Angular projects with pre-configure
 - **🔧 Dev Utilities**: Git hooks and development tools (Husky)
 - **🎨 Tailwind CSS Integration**: Pre-configured utility-first CSS framework with PostCSS
 - **🎯 Custom Structures**: Support for custom folder structure configurations
+- **🔌 Plugin System**: Extensible plugin architecture for additional features (auth, i18n, PWA, etc.)
 - **⚡ Fast Setup**: Get your project ready in seconds, not minutes
 - **🔧 Angular 17-20 Support**: Compatible with the latest Angular versions
 
@@ -41,7 +42,16 @@ npm install -g ngx-crafter
 ### Usage
 
 ```bash
+# Basic usage with interactive prompts
 ngx-crafter
+
+# Use plugins for additional features (coming soon)
+ngx-crafter -- --with auth
+ngx-crafter -- --with auth,i18n,pwa
+
+# Plugin-specific options (coming soon)
+ngx-crafter -- --with auth --auth-provider firebase
+ngx-crafter -- --with pwa --pwa-name "My Awesome App"
 ```
 
 That's it! The tool will guide you through the setup process with interactive prompts.
@@ -85,6 +95,19 @@ src/
 │       └── fonts/      # Font files
 └── environments/       # Environment configurations
 ```
+
+### 🔌 Available Plugins
+
+- **🔐 Auth**: Authentication setup with Angular Fire and Firebase (coming soon)
+- **🌍 i18n**: Internationalization with ngx-translate (coming soon)
+- **📱 PWA**: Progressive Web App setup with Angular PWA (coming soon)
+- **📊 CRUD**: CRUD operations setup (coming soon)
+- **🧪 Testing**: Enhanced testing setup (coming soon)
+- **📚 Storybook**: Storybook integration (coming soon)
+
+Plugin system infrastructure is ready! You can create your own plugins now.
+Provided plugins will be available in future versions.
+Meanwhile, check out demo-plugin as an example.
 
 ### 🛠️ Interactive Setup
 
