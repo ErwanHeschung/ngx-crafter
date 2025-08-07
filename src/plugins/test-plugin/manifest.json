@@ -1,0 +1,8 @@
+{
+  "name": "demo-plugin",
+  "description": "A demonstration plugin with a simple counter component",
+  "version": "1.0.0",
+  "author": "ngx-crafter",
+  "keywords": ["demo", "example", "plugin", "counter"],
+  "entryPoint": "index.ts"
+}

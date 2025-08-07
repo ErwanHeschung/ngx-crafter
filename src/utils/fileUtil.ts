@@ -20,7 +20,6 @@ export function updatePackageJson(updates: Record<string, any>) {
 
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
 
-    // Merge scripts properly
     if (updates.scripts && packageJson.scripts) {
         updates.scripts = { ...packageJson.scripts, ...updates.scripts };
     }
