@@ -46,12 +46,12 @@ npm install -g ngx-crafter
 ngx-crafter
 
 # Use plugins for additional features (coming soon)
-ngx-crafter --with auth
-ngx-crafter --with auth,i18n,pwa
+ngx-crafter -- --with auth
+ngx-crafter -- --with auth,i18n,pwa
 
 # Plugin-specific options (coming soon)
-ngx-crafter --with auth --auth-provider firebase
-ngx-crafter --with pwa --pwa-name "My Awesome App"
+ngx-crafter -- --with auth --auth-provider firebase
+ngx-crafter -- --with pwa --pwa-name "My Awesome App"
 ```
 
 That's it! The tool will guide you through the setup process with interactive prompts.
@@ -105,7 +105,9 @@ src/
 - **🧪 Testing**: Enhanced testing setup (coming soon)
 - **📚 Storybook**: Storybook integration (coming soon)
 
-Plugin system infrastructure is ready! You can already make yours! Provided plugins will be available in future versions.
+Plugin system infrastructure is ready! You can create your own plugins now.
+Provided plugins will be available in future versions.
+Meanwhile, check out demo-plugin as an example.
 
 ### 🛠️ Interactive Setup
 

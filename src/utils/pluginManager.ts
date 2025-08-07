@@ -1,22 +1,47 @@
-import { Plugin, PluginManifest, PluginRegistry } from "../types/plugin.js";
+import { Plugin, PluginRegistry } from "../types/plugin.js";
 import { execa } from "execa";
 import chalk from "chalk";
 import path from "path";
 import { promises as fs } from "fs";
+import { fileURLToPath, pathToFileURL } from "url";
 
 export class PluginManager {
   private plugins: PluginRegistry = {};
 
-    async loadPlugins(): Promise<void> {
+  async loadPlugins(requestedPlugins: string[]): Promise<void> {
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const pluginsDir = path.resolve(__dirname, '../plugins');
+
     try {
-      const demoPluginModule = await import("../plugins/test-plugin/index.js");
-      const demoPlugin = demoPluginModule.default;
-      this.plugins[demoPlugin.name] = demoPlugin;
-      
-      console.log(chalk.green("Loaded demo-plugin"));
-    } catch (error) {
-      console.log(chalk.yellow("Plugin system is available but no plugins are currently provided."));
-      console.log(chalk.yellow("Plugins will be available in future versions."));
+      const pluginFolders = await fs.readdir(pluginsDir);
+
+      const foldersToLoad = pluginFolders.filter(folder =>
+        requestedPlugins.some(reqPlugin => normalizeName(reqPlugin) === normalizeName(folder))
+      );
+
+      for (const folder of foldersToLoad) {
+        const pluginPath = path.join(pluginsDir, folder, 'index.js');
+        try {
+          const pluginModule = await import(pathToFileURL(pluginPath).href);
+          const plugin = pluginModule.default;
+          if (plugin?.name) {
+            this.plugins[plugin.name] = plugin;
+            console.log(chalk.green(`Loaded plugin: ${plugin.name}`));
+          } else {
+            console.log(chalk.red(`Plugin in '${folder}' is missing a 'name' property.`));
+          }
+        } catch (e) {
+          console.log(chalk.red(`Failed to load plugin from '${folder}'`));
+        }
+      }
+
+      if (Object.keys(this.plugins).length === 0) {
+        console.log(chalk.yellow("Plugin system is ready, but no valid plugins were provided."));
+      }
+
+    } catch (e) {
+      console.log(chalk.yellow("Plugin system is available but no 'plugins' folder found or readable."));
     }
   }
 
@@ -95,4 +120,8 @@ export class PluginManager {
       await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf8');
     }
   }
+}
+
+function normalizeName(name: string) {
+  return name.toLowerCase().replace(/[-_]/g, '');
 }

@@ -38,25 +38,10 @@ async function main(): Promise<void> {
   await validateAngularVersion(cliVersion);
 
   const pluginManager = new PluginManager();
-  await pluginManager.loadPlugins();
+  await pluginManager.loadPlugins(cliArgs.plugins);
 
   const requestedPlugins = cliArgs.plugins;
   const availablePlugins = pluginManager.getAvailablePlugins();
-
-  if (requestedPlugins.length > 0) {
-    if (availablePlugins.length === 0) {
-      console.log(chalk.yellow("\n🔌 Plugin system is available but no plugins are currently provided."));
-      console.log(chalk.yellow("   Plugins will be available in future versions."));
-      console.log(chalk.yellow("   Continuing with project creation without plugins...\n"));
-    } else {
-      for (const pluginName of requestedPlugins) {
-        if (!availablePlugins.includes(pluginName)) {
-          console.error(chalk.red(`Plugin '${pluginName}' not found. Available plugins: ${availablePlugins.join(', ')}`));
-          process.exit(1);
-        }
-      }
-    }
-  }
 
   const { projectName, packages, devUtilities } = await getProjectConfig();
   const { useCustomStructure, structureFilePath } =

@@ -41,11 +41,11 @@ Options:
   --help             Show this help message
 
 Plugin Examples:
-  ngx-crafter --with demo-plugin
-  ngx-crafter --with auth
-  ngx-crafter --with auth,i18n,pwa
-  ngx-crafter --with auth --auth-provider firebase
-  ngx-crafter --with pwa --pwa-name "My App"
+  ngx-crafter -- --with demo-plugin
+  ngx-crafter -- --with auth
+  ngx-crafter -- --with auth,i18n,pwa
+  ngx-crafter -- --with auth --auth-provider firebase
+  ngx-crafter -- --with pwa --pwa-name "My App"
 
 Available Plugins:
   - demo-plugin: A demonstration plugin with a simple counter component
